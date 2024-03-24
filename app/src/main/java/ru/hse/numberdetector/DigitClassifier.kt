@@ -97,7 +97,7 @@ class DigitClassifier(private val context: Context) {
             val result = output[0]
             val maxIndex = result.indices.maxByOrNull { result[it] } ?: -1
             val resultString =
-                "Prediction Result: %d\nConfidence: %2f"
+                "Результат: %d\nТочность: %2f"
                     .format(maxIndex, result[maxIndex])
 
             return resultString
@@ -105,7 +105,7 @@ class DigitClassifier(private val context: Context) {
             Log.i("INTERPRETER_ERROR", "interpreterRuns $interpreterRuns")
         }
 
-        return "Prediction Result: none\nError occured"
+        return "Результат:\nОшибка!"
     }
 
     fun classifyAsync(bitmap: Bitmap): Task<String> {
